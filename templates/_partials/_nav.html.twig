@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="#">e-commerce</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -33,10 +33,23 @@
 					<a class="nav-link disabled">Disabled</a>
 				</li>
 			</ul>
-			<form class="d-flex">
-				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Search</button>
-			</form>
+			<ul class="mb-2 navbar-nav ms-auto mb-lg-0">
+				{% if app.user %}
+					<li class="nav-items">
+						<a href="" class="nav-link">Mon compte</a>
+					</li>
+					<li class="nav-items">
+						<a href=" {{ path('app_logout')}} " class="nav-link">Me déconnecter</a>
+					</li>
+				{% else %}
+					<li class="nav-items">
+						<a href=" {{ path('app_register') }}" class="nav-link">M'inscrire</a>
+					</li>
+					<li class="nav-items">
+						<a href=" {{ path('app_login') }}" class="nav-link">Me connecter</a>
+					</li>
+				{% endif %}
+			</ul>
 		</div>
 	</div>
 </nav>

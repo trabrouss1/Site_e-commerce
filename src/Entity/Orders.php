@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\OrdersRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Coupons;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\OrdersRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: OrdersRepository::class)]
 class Orders
@@ -21,7 +22,7 @@ class Orders
     #[ORM\Column(type: 'datetime_immutable',options:['default' => 'CURRENT_TIMESTAMP'])]
     private $created_at;
 
-    #[ORM\ManyToOne(targetEntity: coupons::class, inversedBy: 'orders')]
+    #[ORM\ManyToOne(targetEntity: Coupons::class, inversedBy: 'orders')]
     private $coupons;
 
     #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'orders')]
